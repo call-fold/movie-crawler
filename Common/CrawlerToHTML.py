@@ -44,7 +44,7 @@ def get_links_from_html(url, separate='', decode_type='utf-8'):
         if separate == '':
             link_list.append(real_link)
         else:
-            if separate in real_link:
+            if separate in real_link and 'http' not in real_link:
                 link_list.append(real_link)
     return link_list
 

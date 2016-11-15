@@ -51,6 +51,13 @@ def check_folder(target_path, target_dir):
     return target_dir_path
 
 
+def write_result_to_txt(movie_list, path, file_name):
+    file = open(os.path.abspath(path) + '/' + file_name, 'w')
+    for movie in movie_list:
+        file.write(movie + '\n' + '\n')
+    file.close()
+
+
 if __name__ == '__main__':
     # print(get_file_path_list('../'))
     # print(get_file_path_list_by_kind('../', 'md'))
