@@ -11,7 +11,8 @@ def get_movie_download_tuple(url, decode_type='utf-8'):
 
 
 def get_movie_download_link(url, decode_type='utf-8'):
-    download_link_list = Common.CrawlerToHTML.get_links_from_html(url, 'ftp', decode_type)
+    download_link_list = Common.CrawlerToHTML.get_links_from_html_separate(url, 'ftp', decode_type)
+    # print(url)
     return download_link_list[0]
 
 

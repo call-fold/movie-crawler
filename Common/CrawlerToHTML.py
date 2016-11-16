@@ -32,7 +32,27 @@ def get_content_from_html(url, decode_type='utf-8'):
     return text
 
 
-def get_links_from_html(url, separate='', decode_type='utf-8'):
+def get_links_from_html_re(url, pattern='', decode_type='utf-8'):
+    soup = get_soup(url, decode_type)
+    link_list = []
+    for link in soup.find_all('a'):
+        real_link = link.get('href')
+        if real_link == None:
+            continue
+        if real_link == 'None':
+            continue
+        if pattern == '':
+            link_list.append(real_link)
+        else:
+            re_list = re.findall(pattern, real_link)
+            if re_list and 'http' not in real_link:
+                if 'game' not in re_list[0][0]:
+                    print(real_link)
+                    link_list.append(real_link)
+    return link_list
+
+
+def get_links_from_html_separate(url, separate='', decode_type='utf-8'):
     soup = get_soup(url, decode_type)
     link_list = []
     for link in soup.find_all('a'):

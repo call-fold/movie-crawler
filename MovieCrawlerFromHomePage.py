@@ -13,7 +13,7 @@ def compile_url(url):
 
 
 def get_movie_list(url, decode_type='utf-8'):
-    movie_link_list = Common.CrawlerToHTML.get_links_from_html(url, '/html/gndy/dyzz/2016', decode_type)
+    movie_link_list = Common.CrawlerToHTML.get_links_from_html_separate(url, '/html/gndy/dyzz/2016', decode_type)
     movie_link_list = list(map(compile_url, movie_link_list))
     return movie_link_list
 
