@@ -78,8 +78,8 @@ def get_total_movie_download_list(search_index_url, decode_type='utf-8', if_add_
 
 
 if __name__ == '__main__':
-    # input_name = input('movie to search: ')
-    input_name = '火影忍者'
+    input_name = input('movie to search: ')
+    # input_name = '火影忍者'
     my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
