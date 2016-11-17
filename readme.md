@@ -11,7 +11,8 @@
 1.安装python3.x+环境, 推荐使用pyenv搭建纯净python环境, [pyenv](https://github.com/yyuu/pyenv), 自用python3.4.3
 2.通过pip安装包:
 ```bash
-python -m pip install -r requirements.txt
+sudo apt-get install libxml2-dev libxslt1-dev
+pip install -r requirements.txt
 ```
 3.取首页热门电影:
 ```bash
