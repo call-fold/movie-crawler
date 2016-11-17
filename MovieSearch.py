@@ -44,7 +44,7 @@ def delete_str_last_char(str):
 
 def get_all_pages(url, decode_type='utf-8'):
     page_link_set = set(
-        Common.CrawlerToHTML.get_links_from_html_separate(url, '/plus/search.php?keyword=', decode_type))
+        Common.CrawlerToHTML.get_links_from_html_keyword(url, '/plus/search.php?keyword=', decode_type))
     real_page_link_list = []
     # 判断是否需要翻页
     if page_link_set:
@@ -68,7 +68,6 @@ def get_movie_list(url, decode_type='utf-8'):
 
 def get_total_movie_download_list(search_index_url, decode_type='utf-8', if_add_title=False):
     page_link_list = get_all_pages(search_index_url, decode_type)
-    print(page_link_list)
     total_movie_link_list = []
     for page_link in page_link_list:
         total_movie_link_list += get_movie_list(page_link, decode_type)
@@ -77,11 +76,15 @@ def get_total_movie_download_list(search_index_url, decode_type='utf-8', if_add_
     return total_movie_download_list
 
 
-if __name__ == '__main__':
+def main():
     input_name = input('movie to search: ')
-    # input_name = '火影忍者'
     my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
     print('num of searched movies: ' + str(len(search_movie_download_list)))
-    Common.FileCommon.write_result_to_txt(search_movie_download_list, os.path.abspath('.'), input_name + '.txt')
+    Common.FileCommon.write_result_to_txt(search_movie_download_list, os.path.abspath('.') + '/search_movies',
+                                          input_name + '.txt')
+
+
+if __name__ == '__main__':
+    main()

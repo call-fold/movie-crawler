@@ -47,12 +47,11 @@ def get_links_from_html_re(url, pattern='', decode_type='utf-8'):
             re_list = re.findall(pattern, real_link)
             if re_list and 'http' not in real_link:
                 if 'game' not in re_list[0][0]:
-                    print(real_link)
                     link_list.append(real_link)
     return link_list
 
 
-def get_links_from_html_separate(url, separate='', decode_type='utf-8'):
+def get_links_from_html_keyword(url, keyword='', decode_type='utf-8'):
     soup = get_soup(url, decode_type)
     link_list = []
     for link in soup.find_all('a'):
@@ -61,10 +60,10 @@ def get_links_from_html_separate(url, separate='', decode_type='utf-8'):
             continue
         if real_link == 'None':
             continue
-        if separate == '':
+        if keyword == '':
             link_list.append(real_link)
         else:
-            if separate in real_link and 'http' not in real_link:
+            if keyword in real_link and 'http' not in real_link:
                 link_list.append(real_link)
     return link_list
 

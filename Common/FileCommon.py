@@ -44,7 +44,7 @@ def file_len(file_path):
     return i + 1
 
 
-def check_folder(target_path, target_dir):
+def check_folder(target_path, target_dir=''):
     target_dir_path = target_path + '/' + target_dir
     if not os.path.isdir(target_dir_path):
         os.mkdir(target_dir_path)
@@ -52,6 +52,7 @@ def check_folder(target_path, target_dir):
 
 
 def write_result_to_txt(movie_list, path, file_name):
+    check_folder(os.path.abspath(path))
     file = open(os.path.abspath(path) + '/' + file_name, 'w')
     for movie in movie_list:
         file.write(movie + '\n' + '\n')
