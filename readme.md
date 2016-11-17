@@ -9,16 +9,19 @@
 
 #### 使用指南:
 1.安装python3.x+环境, 推荐使用pyenv搭建纯净python环境, [pyenv](https://github.com/yyuu/pyenv), 自用python3.4.3
+<br></br>
 2.通过pip安装包:
 ```bash
 sudo apt-get install libxml2-dev libxslt1-dev
 pip install -r requirements.txt
 ```
+<br></br>
 3.取首页热门电影:
 ```bash
 python MovieCrawlerFromHomePage.py
 ```
 输出结果在top_movies目录下
+<br></br>
 4.搜索电影, 输入电影名:
 ```bash
 python MovieSearch.py
