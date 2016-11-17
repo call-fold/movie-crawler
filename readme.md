@@ -8,7 +8,7 @@
 * beautifulsoup4: 4.5.1
 
 ### 使用指南:
-1.安装python3.x+环境, 推荐使用pyenv搭建纯净python环境, [pyenv](https://github.com/yyuu/pyenv), 自用python3.4.3
+1.安装python3.x+环境, 推荐使用[pyenv](https://github.com/yyuu/pyenv)搭建纯净python环境, 自用python3.4.3
 <br></br>
 2.通过pip安装包:
 ```bash
