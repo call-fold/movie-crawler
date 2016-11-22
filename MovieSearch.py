@@ -76,6 +76,20 @@ def get_total_movie_download_list(search_index_url, decode_type='utf-8', if_add_
     return total_movie_download_list
 
 
+def do_movie_search(input_name, store_dir_path):
+    my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
+                                         input_name)
+    search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
+    print(input_name)
+    print('num of searched movies: ' + str(len(search_movie_download_list)))
+    if len(search_movie_download_list) > 0:
+        Common.FileCommon.write_result_to_txt(search_movie_download_list, store_dir_path,
+                                              input_name + '.txt')
+    else:
+        print('can not find links of %s' % input_name)
+    print()
+
+
 def main():
     input_name = input('movie to search: ')
     my_search_index_url = get_search_url('http://s.dydytt.net/plus/search.php?kwtype=0&searchtype=title&keyword=',
