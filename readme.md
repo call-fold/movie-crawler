@@ -36,17 +36,16 @@ python MovieSearch.py
 ```bash
 host='127.0.0.1', port=6379, db=0
 ```
-<br></br>
 6.取豆瓣Top250电影, 存入redis:
 ```bash
 python StoreTopNMoviesFromDouban.py
 ```
-<br></br>
 7.从redis中取TopN电影(最大250):
 ```bash
 python GetTopNMoviesFromDouban.py
 ```
 输出结果在top_n_from_douban目录下
+<br></br>
 
 ### 功能列表:
 * 2016-11-23: 取豆瓣Top250电影的下载地址
