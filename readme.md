@@ -63,6 +63,6 @@ python GetTopNMoviesFromDouban.py
 * 没有找到链接的电影不会生成*.txt
 
 ### BUG List:
-* 处理某些电影输入格式错误, 定位: 小森林 夏秋篇
+* 处理某些电影搜索输入格式错误, 定位: 小森林 夏秋篇
 
 ----
