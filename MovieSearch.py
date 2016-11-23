@@ -28,7 +28,6 @@ def get_search_url(default_search_url, search_str):
     # 处理电影名中间的空格
     real_search_str = real_search_str.replace(' ', '%20')
     real_search_url = make_search_url(default_search_url, real_search_str)
-    print(real_search_url)
     return real_search_url
 
 
