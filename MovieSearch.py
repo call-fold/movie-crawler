@@ -9,7 +9,8 @@ import re
 
 
 def change_code_type(input_str, encode_type):
-    return input_str.encode(encode_type)
+    real_input_str = input_str.encode(encode_type)
+    return real_input_str
 
 
 def change_search_str(byte_input):
@@ -24,7 +25,10 @@ def make_search_url(search_url, add_str):
 def get_search_url(default_search_url, search_str):
     search_str_byte = change_code_type(search_str, 'gbk')
     real_search_str = change_search_str(search_str_byte)
+    # 处理电影名中间的空格
+    real_search_str = real_search_str.replace(' ', '%20')
     real_search_url = make_search_url(default_search_url, real_search_str)
+    print(real_search_url)
     return real_search_url
 
 
