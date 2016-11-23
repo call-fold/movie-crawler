@@ -46,21 +46,22 @@ def delete_str_last_char(str):
 
 
 def get_all_pages(url, decode_type='utf-8'):
-    page_link_set = set(
-        Common.CrawlerToHTML.get_links_from_html_keyword(url, '/plus/search.php?keyword=', decode_type))
-    real_page_link_list = []
-    # 判断是否需要翻页
-    if page_link_set:
-        print('have more pages')
-        real_page_link_list = list(map(compile_url_page, page_link_set))
-        first_page_link = delete_str_last_char(real_page_link_list[0]) + '1'
-        real_page_link_list.append(first_page_link)
-        real_page_link_list.sort()
-        return real_page_link_list
+    page_link_list = Common.CrawlerToHTML.get_links_from_html_keyword(url, '/plus/search.php?keyword=', decode_type)
+    all_real_page_link_list = []
+    if page_link_list:
+        last_page_link = page_link_list[len(page_link_list) - 1]
+        last_page_splits = re.findall('(\S*)PageNo=(\d*)', last_page_link)
+        page_link_common_body = last_page_splits[0][0] + 'PageNo='
+        last_page_num = int(last_page_splits[0][1])
+        all_page_link_list = []
+        for i in range(last_page_num):
+            page_link = page_link_common_body + str(i + 1)
+            all_page_link_list.append(page_link)
+        all_real_page_link_list = list(map(compile_url_page, all_page_link_list))
+        return all_real_page_link_list
     else:
-        print('only one page')
-        real_page_link_list.append(url)
-        return real_page_link_list
+        all_real_page_link_list.append(url)
+        return all_real_page_link_list
 
 
 def get_movie_list(url, decode_type='utf-8'):
