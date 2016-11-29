@@ -47,6 +47,10 @@ python GetTopNMoviesFromDouban.py
 输出结果在top_n_from_douban目录下
 <br></br>
 
+### 集成到Django Blog中
+<br>
+![movie_search](https://cloud.githubusercontent.com/assets/12811161/20725873/490df944-b6ae-11e6-884e-f6bf11142226.png)
+
 ### 更新列表:
 * 2016-11-30: 完成与Django博客的集成, [电影搜索器](http://slfweb.com/movie_search/), 位于[博客-实验室](http://slfweb.com/laboratory/)下
 * 2016-11-29: 一页多ftp链接问题
