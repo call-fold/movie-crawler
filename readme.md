@@ -49,6 +49,9 @@ python GetTopNMoviesFromDouban.py
 
 ### 集成到Django Blog中
 <br>
+### 传送门:
+### [电影搜索器](http://slfweb.com/movie_search/)
+<br>
 ![movie_search](https://cloud.githubusercontent.com/assets/12811161/20725873/490df944-b6ae-11e6-884e-f6bf11142226.png)
 
 ### 更新列表:
