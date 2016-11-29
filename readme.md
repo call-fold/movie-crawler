@@ -48,6 +48,8 @@ python GetTopNMoviesFromDouban.py
 <br></br>
 
 ### 更新列表:
+* 2016-11-30: 完成与Django博客的集成, [电影搜索器](http://slfweb.com/movie_search/), 位于[博客-实验室](http://slfweb.com/laboratory/)下
+* 2016-11-29: 一页多ftp链接问题
 * 2016-11-24: 处理输入空格BUG, 完善翻页功能
 * 2016-11-23: 取豆瓣Top250电影的下载地址
 * 2016-11-18: 完善安装使用指南, 热门电影去重
