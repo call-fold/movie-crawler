@@ -22,13 +22,13 @@ pip install -r requirements.txt
 ```
 3.取首页热门电影:
 ```bash
-python MovieCrawlerFromHomePage.py
+python movie_crawler_from_home_page.py
 ```
 输出结果在top_movies目录下
 <br></br>
 4.搜索电影, 输入电影名:
 ```bash
-python MovieSearch.py
+python movie_search.py
 ```
 输出结果在search_movies目录下
 <br></br>
@@ -38,13 +38,25 @@ host='127.0.0.1', port=6379, db=0
 ```
 6.取豆瓣Top250电影, 存入redis:
 ```bash
-python StoreTopNMoviesFromDouban.py
+python store_topN_movies_from_douban.py
 ```
 7.从redis中取TopN电影(最大250):
 ```bash
-python GetTopNMoviesFromDouban.py
+python get_topN_movies_from_douban.py
 ```
 输出结果在top_n_from_douban目录下
+8.从电影天堂爬取全站数据, 存入redis中:
+```bash
+host='127.0.0.1', port=6379, db=1
+```
+```bash
+python crawl_the_whole_movie_site.py
+```
+9.从redis中查询电影:
+```
+python movie_search_from_redis.py
+```
+
 <br></br>
 
 ### 集成到Django Blog中
