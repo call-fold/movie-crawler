@@ -89,7 +89,7 @@ def crawl_source_page(url, file_dir, file_name, crawled_urls):
             # f.write(source_url + "\n")
 
             # push to redis
-            strict_redis.rpush(change_movie_title(file_name), source_url)
+            strict_redis.sadd(change_movie_title(file_name), source_url)
             # strict_redis.rpush(file_name, source_url)
             # f.close()
             # if os.stat(source).st_size == 0:
@@ -174,23 +174,8 @@ def crawl_index_page(start_url):
                     print(e)
 
 
-def get_movie_list(pattern):
-    pattern = ('*' + pattern + '*').encode('gbk')
-    pattern = str(pattern).replace('\\x', '%')
-    pattern = re.findall(r'b\'(.+?)\'', pattern)[0]
-    list_title = strict_redis.keys(pattern)
-    for title in list_title:
-        list_len = strict_redis.llen(title)
-        movie_list = strict_redis.lrange(title, 0, list_len)
-        print(title + ' :')
-        for movie in movie_list:
-            print(movie)
-
-
 def main():
     crawl_index_page(start_url)
-    # movie_title = '海贼王'
-    # get_movie_list(movie_title)
 
 
 if __name__ == '__main__':
