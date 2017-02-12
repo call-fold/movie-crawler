@@ -52,6 +52,7 @@ python GetTopNMoviesFromDouban.py
 ![movie_search](https://cloud.githubusercontent.com/assets/12811161/20725873/490df944-b6ae-11e6-884e-f6bf11142226.png)
 
 ### 更新列表:
+* 2017-02-12: 将电影数据存入Redis中, [电影搜索器](http://slfweb.com/movie_search/)从Redis中取数据
 * 2016-11-30: 完成与Django博客的集成, [电影搜索器](http://slfweb.com/movie_search/), 位于[博客-实验室](http://slfweb.com/laboratory/)下
 * 2016-11-29: 一页多ftp链接问题
 * 2016-11-24: 处理输入空格BUG, 完善翻页功能
@@ -62,6 +63,7 @@ python GetTopNMoviesFromDouban.py
 * 2016-11-14: 从电影天堂网站, 获取热门电影(2016年)下载地址
 
 ### 待完成:
+* 定时更新Redis电影数据库
 * ~~翻页功能~~
 * 搜索结果, 电影和电视剧未做区分
 * 下载功能
