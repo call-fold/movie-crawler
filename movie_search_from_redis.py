@@ -4,6 +4,8 @@
 import re
 import redis
 
+from crawl_the_whole_movie_site import crawl_list_page
+
 strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=1, charset='GBK', decode_responses=True)
 
 
@@ -21,10 +23,11 @@ def get_movie_list(pattern):
 
 
 def main():
-    movie_title = '海贼王'
+    movie_title = '树大根深'
     movie_list = get_movie_list(movie_title)
     for movie in movie_list:
         print(movie)
+    # crawl_list_page('http://www.ygdy8.com/html/tv/rihantv/list_8_24.html', [], 'http://www.ygdy8.com', strict_redis)
 
 
 if __name__ == '__main__':
