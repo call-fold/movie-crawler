@@ -59,6 +59,15 @@ def write_result_to_txt(movie_list, path, file_name):
     file.close()
 
 
+def write_tuple_result_to_txt(movie_tuple_list, path, file_name):
+    check_folder(os.path.abspath(path))
+    file = open(os.path.abspath(path) + '/' + file_name, 'w')
+    for movie_tuple in movie_tuple_list:
+        if movie_tuple[1] is not '':
+            file.write(movie_tuple[0] + '\n' + movie_tuple[1] + '\n' + '\n')
+    file.close()
+
+
 if __name__ == '__main__':
     # print(get_file_path_list('../'))
     # print(get_file_path_list_by_kind('../', 'md'))

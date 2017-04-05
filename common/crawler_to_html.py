@@ -37,7 +37,7 @@ def get_links_from_html_re(url, pattern='', decode_type='utf-8'):
     link_list = []
     for link in soup.find_all('a'):
         real_link = link.get('href')
-        if real_link == None:
+        if real_link is None:
             continue
         if real_link == 'None':
             continue
@@ -56,7 +56,7 @@ def get_links_from_html_keyword(url, keyword='', decode_type='utf-8'):
     link_list = []
     for link in soup.find_all('a'):
         real_link = link.get('href')
-        if real_link == None:
+        if real_link is None:
             continue
         if real_link == 'None':
             continue
@@ -65,6 +65,24 @@ def get_links_from_html_keyword(url, keyword='', decode_type='utf-8'):
         else:
             if keyword in real_link and 'http' not in real_link:
                 link_list.append(real_link)
+    return link_list
+
+
+def get_links_from_html_keywords(url, keywords, decode_type='utf-8'):
+    soup = get_soup(url, decode_type)
+    link_list = []
+    for link in soup.find_all('a'):
+        real_link = link.get('href')
+        if real_link is None:
+            continue
+        if real_link == 'None':
+            continue
+        for keyword in keywords:
+            if keyword == '':
+                link_list.append(real_link)
+            else:
+                if keyword in real_link and 'http' not in real_link:
+                    link_list.append(real_link)
     return link_list
 
 
