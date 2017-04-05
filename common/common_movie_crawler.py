@@ -31,3 +31,12 @@ def get_movie_download_list(real_movie_link_list, decode_type='utf-8', if_add_ti
             if movie_download_list_by_page:
                 movie_download_list.extend(movie_download_list_by_page)
     return movie_download_list
+
+
+def get_movie_download_dict(movie_download_tuple_list):
+    movie_download_dict = dict()
+    for movie_tuple in movie_download_tuple_list:
+        movie_title = movie_tuple[0]
+        download_url = movie_tuple[1]
+        movie_download_dict[movie_title] = download_url
+    return movie_download_dict
