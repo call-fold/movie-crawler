@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import common.file_common
 import urllib.request
 from bs4 import BeautifulSoup
 import re
+
+from common.file_common import check_folder
 
 
 def get_html(url, decode_type='utf-8'):
@@ -94,7 +95,7 @@ def images_crawler(url, reg):
 
 
 def save_images(image_list, target_path, target_dir):
-    dir_path = common.file_common.check_folder(target_path, target_dir)
+    dir_path = check_folder(target_path, target_dir)
     i = 0
     for image_url in image_list:
         image_path = dir_path + '/' + '%d.jpg' % i
