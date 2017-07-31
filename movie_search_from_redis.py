@@ -6,7 +6,7 @@ import redis
 
 from crawl_the_whole_movie_site import crawl_list_page
 
-strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=1, charset='GBK', decode_responses=True)
+strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=2, charset='GBK', decode_responses=True)
 
 
 def get_movie_list(pattern):
@@ -23,7 +23,7 @@ def get_movie_list(pattern):
 
 
 def main():
-    movie_title = '树大根深'
+    movie_title = '冰与火之歌'
     movie_list = get_movie_list(movie_title)
     for movie in movie_list:
         print(movie)

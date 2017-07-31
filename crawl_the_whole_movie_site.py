@@ -3,12 +3,18 @@
 
 import re
 import threading
-import redis
-from urllib import request
-from lxml import etree
-from common.file_common import check_folder
+import os
+import sys
 import logging.config
 import ctypes
+import errno
+import redis
+
+from urllib import request
+from time import sleep
+from common.file_common import check_folder
+from common.timeout import timeout
+from lxml import etree
 
 check_folder('/var/log', 'movie_crawler')
 logging.config.fileConfig('movie_crawler_logging.conf')
@@ -185,11 +191,14 @@ def crawl_index_page(start_url, host, strict_redis):
 
 
 def main():
-    strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=1, charset='GBK', decode_responses=True)
+    strict_redis = redis.StrictRedis(host='127.0.0.1', port=6379, db=2, charset='GBK', decode_responses=True)
     host = "http://www.ygdy8.com"
     start_url = "http://www.ygdy8.com/index.html"
     logger.info('proc_id-' + get_proc_id() + ' begin to crawl from: ' + start_url)
     crawl_index_page(start_url, host, strict_redis)
+    # 后面写入配置文件
+    sleep(60 * 60)
+    os._exit(0)
 
 
 if __name__ == '__main__':
