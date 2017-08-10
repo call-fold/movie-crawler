@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+
 import redis
 
 from movie_search import do_movie_search

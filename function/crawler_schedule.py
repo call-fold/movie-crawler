@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import logging
+import logging.config
+
+import os
 import schedule
 import time
 import redis
@@ -10,7 +12,8 @@ from common.file_common import check_folder
 from crawl_the_whole_movie_site import crawl_index_page
 
 check_folder('/var/log', 'movie_crawler')
-logging.config.fileConfig('movie_crawler_logging.conf')
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'conf/movie_crawler_logging.conf')
+logging.config.fileConfig(log_file_path)
 logger = logging.getLogger('slf')
 
 
