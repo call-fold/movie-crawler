@@ -7,7 +7,7 @@ source_port=6379
 source_db=2
 target_host=localhost
 target_port=6379
-target_db=4
+target_db=1
 
 #copy all keys without preserving ttl!
 /home/slf/dev/redis-3.2.5/src/redis-cli -h $source_host -p $source_port -n $source_db keys \* | while read key;
