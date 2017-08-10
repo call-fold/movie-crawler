@@ -17,7 +17,7 @@ from common.timeout import timeout
 from lxml import etree
 
 check_folder('/var/log', 'movie_crawler')
-log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'movie_crawler_logging.conf')
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'conf/movie_crawler_logging.conf')
 logging.config.fileConfig(log_file_path)
 logger = logging.getLogger('slf')
 

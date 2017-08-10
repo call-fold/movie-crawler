@@ -6,6 +6,14 @@ import common.common_movie_crawler
 import common.file_common
 import os
 import re
+import logging.config
+
+from common.file_common import check_folder
+
+check_folder('/var/log', 'movie_crawler')
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'conf/movie_search.conf')
+logging.config.fileConfig(log_file_path)
+logger = logging.getLogger('slf')
 
 
 def change_code_type(input_str, encode_type):
@@ -84,14 +92,13 @@ def do_movie_search(input_name, store_dir_path):
     my_search_index_url = get_search_url('http://s.dydytt.net/plus/so.php?kwtype=0&searchtype=title&keyword=',
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
-    print(input_name)
-    print('num of searched movies: ' + str(len(search_movie_download_list)))
+    logger.info(input_name)
+    logger.info('num of searched movies: ' + str(len(search_movie_download_list)))
     if len(search_movie_download_list) > 0:
         common.file_common.write_result_to_txt(search_movie_download_list, store_dir_path,
                                                input_name + '.txt')
     else:
-        print('can not find links of %s' % input_name)
-    print()
+        logger.error('can not find links of %s' % input_name)
 
 
 def main():
@@ -99,7 +106,7 @@ def main():
     my_search_index_url = get_search_url('http://s.dydytt.net/plus/so.php?kwtype=0&searchtype=title&keyword=',
                                          input_name)
     search_movie_download_list = get_total_movie_download_list(my_search_index_url, 'gbk', False)
-    print('num of searched movies: ' + str(len(search_movie_download_list)))
+    logger.info('num of searched movies: ' + str(len(search_movie_download_list)))
     common.file_common.write_result_to_txt(search_movie_download_list, os.path.abspath('.') + '/search_movies',
                                            input_name + '.txt')
 
